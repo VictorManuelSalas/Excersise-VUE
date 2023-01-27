@@ -26,7 +26,7 @@
                 <!--Para poder ingresar un valor de una variable desde js
         se utiliza el v-bind: ya que permite iterar una variable
         con un valor a un atributo como en este caso es el src-->
-                <img v-bind:src="image" alt="">
+                <img v-bind:src='image' alt="">
                 <!--Tambien se puede iterar un atributo solamente agregando 
         dos puntos en frente de el como se muestra siguiente:
         <img :src="img" alt="">-->
@@ -37,8 +37,8 @@
         title se obtiene de una propiedad computada creada por 
         mi-->
                 <h1>{{ title }}</h1>
-                <p v-if="inventory > 10">In Stock</p>
-                <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out! </p>
+                <p v-if="inStock > 10">In Stock</p>
+                <p v-else-if="inStock <= 10 && inStock > 0">Almost sold out! </p>
                 <p v-else>Out of Stock</p>
 
                 <br>
@@ -52,7 +52,7 @@
                 <br>
 
                 <div id="colors">
-                    <div v-for="dato, index in data" :key="dato.id" @mouseover="updateImage(dato.image)"
+                    <div v-for="dato, index in data" :key="dato.id" @mouseover="updateVariant(index)"
                     class="color-circle" :style="{ backgroundColor: dato.color }"></div>
                 <!--El estilo usa propiedades js por eso el bgcolor no es el mismo de css-->
 
@@ -70,14 +70,46 @@
 
         </div>
 
+        <div class="form">
+            <form action="" class="review-form" @submit.prevent="onSubmit">
+                <h3>Leave a review</h3>
+                <label for="name">Name:</label>
+                <input type="text" v-model="name" id="name" required>
 
+                <label for="review">Review:</label>
+                <textarea id="review" v-model="review" required></textarea>
 
+                <label for="rating">Rating:</label>
+                <select id="rating" v-model.number="rating" required>
+                    <option value="5">5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>
+                </select>
 
+                <input class="btn-sub" type="submit" value="Submit">
+            </form>
 
-
-
-
-
+            <div id="reviews">
+                <h2>Reviews Product</h2>
+                <div id="review">
+                    <ul>
+                        <li v-for="rev,index in reviews">
+                            <b>{{index}}</b>
+                            <b>{{rev.name}}</b>
+                            <p>{{rev.review}}</p>
+                            <p v-if="rev.rating == 1">⭐</p>
+                            <p v-else-if="rev.rating == 2">⭐⭐</p>
+                            <p v-else-if="rev.rating == 3">⭐⭐⭐</p>
+                            <p v-else-if="rev.rating == 4">⭐⭐⭐⭐</p>
+                            <p v-else="rev.rating == 5">⭐⭐⭐⭐⭐</p>
+                            <p>{{rev.date}}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
 

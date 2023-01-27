@@ -6,24 +6,32 @@ let app = Vue.createApp({
             //Variable con un valor
             marca: 'VUE',
             product: 'Socks',
-            image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png',
+            selectedVariant: 0,
             //img: './assets/socks white.jpg'
-            inventory: 10,
-            inStock: true,
+            //inventory: 10,
+            //inStock: true,
             details: ['50% cotton', '30% wool', '20% polyester'],
             data: [
-                { id: 12, color: 'green', image: './assets/green socks.jpg' },
-                { id: 13, color: 'white', image: './assets/socks white.jpg' },
+                { id: 12, color: 'green', image: './assets/green socks.jpg', quantity: 10 },
+                { id: 13, color: 'white', image: './assets/socks white.jpg', quantity: 0 },
             ],
             number: 0,
+            name: '',
+            review: '',
+            rating: null,
+            reviews: [],
+            local: [],
         }
     },
+    created(){
+            this.reviews.push(JSON.parse(localStorage.getItem('reviews')));
+        },
     methods: {
         addCar() {
             this.number += 1;
-            if (this.number >= this.inventory) {
+            if (this.number >= this.data[this.selectedVariant].quantity) {
                 this.inStock = false;
-                this.number = this.inventory;
+                this.number = this.data[this.selectedVariant].quantity;
             }
         },
         removeCar() {
@@ -35,16 +43,39 @@ let app = Vue.createApp({
             }
 
         },
-        updateImage(imgData) {
-            this.image = imgData;
+        updateVariant(index) {
+            this.selectedVariant = index;
+        },
+        onSubmit(){
+
+            let day = Date.now();
+            let now = new Date(day);
+
+            let productReview = {
+                name: this.name,
+                review: this.review,
+                rating: this.rating,
+                date: now.toDateString(),
+            }
+            localStorage.setItem('reviews',JSON.stringify( productReview));
+            let registros = JSON.parse(localStorage.getItem('reviews'));
+            this.reviews.push(registros);
         }
     },
     computed: {
         title() {
             return this.marca + ' ' + this.product;
+        },
+        image() {
+            return this.data[this.selectedVariant].image;
+
+        },
+        inStock() {
+            return this.data[this.selectedVariant].quantity;
         }
     }
 });
+
 
 
 //Montando la app en una etiqutea mediante el id
