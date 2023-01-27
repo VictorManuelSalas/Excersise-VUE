@@ -155,6 +155,7 @@ form select{
   width: 20%;
   height: fit-content;
   padding: 0.4rem;
+  border-radius: 0.5rem;
 }
 .btn-sub{
   width: 50%;
@@ -178,6 +179,14 @@ form select{
   main{
     flex-direction: column-reverse;
     gap: 1rem;
+  }
+  .form{
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  form, #reviews{
+    width: 70%;
   }
   
 }

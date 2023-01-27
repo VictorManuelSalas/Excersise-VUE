@@ -24,7 +24,9 @@ let app = Vue.createApp({
         }
     },
     created(){
-            this.reviews.push(JSON.parse(localStorage.getItem('reviews')));
+        let registros = JSON.parse(localStorage.getItem('reviews'));
+        this.reviews.push(registros);
+        console.log('Info obtenida primero',this.reviews);
         },
     methods: {
         addCar() {
@@ -57,9 +59,13 @@ let app = Vue.createApp({
                 rating: this.rating,
                 date: now.toDateString(),
             }
-            localStorage.setItem('reviews',JSON.stringify( productReview));
+            this.local.push(productReview);
+            localStorage.setItem('reviews',JSON.stringify( this.local));
+            console.log('Info del local arreglo',this.local);
+            
             let registros = JSON.parse(localStorage.getItem('reviews'));
             this.reviews.push(registros);
+            console.log('Info del arreglo final',this.reviews);
         }
     },
     computed: {
