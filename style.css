@@ -5,15 +5,33 @@
 header {
   width: 100%;
   height: 3rem;
-  background-color: rgb(119, 193, 119);
+  background: rgb(102, 255, 109);
+  background: linear-gradient(
+    90deg,
+    rgba(102, 255, 109, 1) 0%,
+    rgba(48, 230, 63, 1) 35%,
+    rgba(81, 246, 159, 1) 100%
+  );
 }
 main {
   margin-top: 2rem;
   display: flex;
   justify-content: space-around;
-  gap: 1rem;
 }
-
+section{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+#info h1{
+  font-size: 2rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#info p{
+  font-weight: bold;
+}
 img {
   width: 300px;
   height: 300px;
@@ -29,27 +47,28 @@ img {
   cursor: pointer;
 }
 .car {
+  width: fit-content;
   padding: 1rem;
   border-radius: 10px;
   background-color: rgb(214, 214, 214);
 }
 ul {
-  list-style: none;
+  list-style: circle;
   padding: 0;
 }
 .disabledButton {
   background-color: #d8d8d8;
   cursor: not-allowed;
 }
-#botones{
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
+#botones {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
 }
-.btn{
-    text-align: center;
-    font-size: 1rem;
-    padding: 1rem;
-    border-radius: 10px;
-    cursor: pointer;
+.btn {
+  text-align: center;
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
 }
