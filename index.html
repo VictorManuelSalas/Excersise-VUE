@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon"
+        href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png"
+        type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.Js App</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</head>
+
+<body>
+
+    <!--Vue mostrara todo en este div con id app-->
+    <div id="app">
+        <header></header>
+        <main>
+            <section id="img">
+                <!--Para poder ingresar un valor de una variable desde js
+        se utiliza el v-bind: ya que permite iterar una variable
+        con un valor a un atributo como en este caso es el src-->
+                <img v-bind:src="image" alt="">
+                <!--Tambien se puede iterar un atributo solamente agregando 
+        dos puntos en frente de el como se muestra siguiente:
+        <img :src="img" alt="">-->
+            </section>
+            <section id="info">
+                <!--Asi se iteran variables de js asi el html con {{}} 
+            y el nombre de la variable, por ejemplo la variable 
+        title se obtiene de una propiedad computada creada por 
+        mi-->
+                <h1>{{ title }}</h1>
+                <p v-if="inventory > 10">In Stock</p>
+                <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out! </p>
+                <p v-else>Out of Stock</p>
+
+                <br>
+
+                <ul>
+                    <li v-for="details in details">
+                        {{details}}
+                    </li>
+                </ul>
+
+                <br>
+
+                <div v-for="dato, index in data" :key="dato.id" @mouseover="updateImage(dato.image)"
+                    class="color-circle" :style="{ backgroundColor: dato.color }"></div>
+                <!--El estilo usa propiedades js por eso el bgcolor no es el mismo de css-->
+
+            </section>
+            <section>
+                <div class="car">Car ({{ number }})</div>
+            </section>
+        </main>
+        <div id="botones">
+            <button class="btn" v-on:click="addCar()" :class="{ disabledButton: !inStock }" :disabled="!inStock">Add to
+                car</button>
+            <button class="btn" v-on:click="removeCar()">Remove from car</button>
+
+        </div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+    <!--Importacion de la app de vue en js-->
+    <script src="./main.js"></script>
+</body>
+
+</html>
