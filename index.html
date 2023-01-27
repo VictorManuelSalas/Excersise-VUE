@@ -49,10 +49,13 @@
 
                 <br>
 
-                <div v-for="dato, index in data" :key="dato.id" @mouseover="updateImage(dato.image)"
+                <div id="colors">
+                    <div v-for="dato, index in data" :key="dato.id" @mouseover="updateImage(dato.image)"
                     class="color-circle" :style="{ backgroundColor: dato.color }"></div>
                 <!--El estilo usa propiedades js por eso el bgcolor no es el mismo de css-->
 
+                </div>
+                
             </section>
             <section id="car">
                 <div class="car">Car ({{ number }})</div>

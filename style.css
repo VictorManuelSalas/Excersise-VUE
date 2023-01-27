@@ -72,3 +72,15 @@ ul {
   border-radius: 10px;
   cursor: pointer;
 }
+
+
+@media only screen and (min-width: 320px) and (max-width: 630px)  {
+  main{
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+  #colors{
+    display: flex;
+    gap: 1rem;
+  }
+}
