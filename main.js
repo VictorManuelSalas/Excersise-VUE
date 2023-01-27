@@ -23,11 +23,16 @@ let app = Vue.createApp({
             local: [],
         }
     },
-    created(){
-        let registros = JSON.parse(localStorage.getItem('reviews'));
-        this.reviews.push(registros);
-        console.log('Info obtenida primero',this.reviews);
-        },
+    created() {
+        if (JSON.parse(localStorage.getItem('reviews')) != null) {
+            
+        }else{
+            let registros = JSON.parse(localStorage.getItem('reviews'));
+            this.reviews.push(registros);
+            console.log('Info obtenida primero', this.reviews);
+        }
+
+    },
     methods: {
         addCar() {
             this.number += 1;
@@ -48,7 +53,7 @@ let app = Vue.createApp({
         updateVariant(index) {
             this.selectedVariant = index;
         },
-        onSubmit(){
+        onSubmit() {
 
             let day = Date.now();
             let now = new Date(day);
@@ -60,12 +65,12 @@ let app = Vue.createApp({
                 date: now.toDateString(),
             }
             this.local.push(productReview);
-            localStorage.setItem('reviews',JSON.stringify( this.local));
-            console.log('Info del local arreglo',this.local);
-            
+            localStorage.setItem('reviews', JSON.stringify(this.local));
+            console.log('Info del local arreglo', this.local);
+
             let registros = JSON.parse(localStorage.getItem('reviews'));
             this.reviews.push(registros);
-            console.log('Info del arreglo final',this.reviews);
+            console.log('Info del arreglo final', this.reviews);
         }
     },
     computed: {
