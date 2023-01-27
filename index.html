@@ -95,8 +95,8 @@
                 <h2>Reviews Product</h2>
                 <div id="review">
                     <ul>
-                        <li v-for="rev,index in reviews">
-                            <b>{{rev.name}} ◾</b>
+                        <li v-for="rev in reviews">
+                            <b>{{rev.name}}</b>
                             <p>{{rev.review}}</p>
                             <p v-if="rev.rating == 1">⭐</p>
                             <p v-else-if="rev.rating == 2">⭐⭐</p>

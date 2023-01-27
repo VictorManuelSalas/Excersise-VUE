@@ -20,7 +20,6 @@ let app = Vue.createApp({
             review: '',
             rating: null,
             reviews: [],
-            local: [],
         }
     },
     methods: {
@@ -54,13 +53,10 @@ let app = Vue.createApp({
                 rating: this.rating,
                 date: now.toDateString(),
             }
-            this.local.push(productReview);
-            localStorage.setItem('reviews', JSON.stringify(this.local));
-            console.log('Info del local arreglo', this.local);
+            localStorage.setItem('reviews', JSON.stringify(productReview));
 
             let registros = JSON.parse(localStorage.getItem('reviews'));
             this.reviews.push(registros);
-            console.log('Info del arreglo final', this.reviews);
         }
     },
     computed: {
