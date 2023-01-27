@@ -24,7 +24,7 @@ let app = Vue.createApp({
         }
     },
     created() {
-        if (JSON.parse(localStorage.getItem('reviews')) != null) {
+        if (JSON.parse(localStorage.getItem('reviews')) == null) {
             
         }else{
             let registros = JSON.parse(localStorage.getItem('reviews'));
