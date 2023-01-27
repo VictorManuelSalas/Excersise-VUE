@@ -23,16 +23,6 @@ let app = Vue.createApp({
             local: [],
         }
     },
-    created() {
-        if (JSON.parse(localStorage.getItem('reviews')) == null) {
-            
-        }else{
-            let registros = JSON.parse(localStorage.getItem('reviews'));
-            this.reviews.push(registros);
-            console.log('Info obtenida primero', this.reviews);
-        }
-
-    },
     methods: {
         addCar() {
             this.number += 1;
