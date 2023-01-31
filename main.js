@@ -9,7 +9,7 @@ let app = Vue.createApp({
             selectedVariant: 0,
             //img: './assets/socks white.jpg'
             //inventory: 10,
-            //inStock: true,
+            inStock: true,
             details: ['50% cotton', '30% wool', '20% polyester'],
             data: [
                 { id: 12, color: 'green', image: './assets/green socks.jpg', quantity: 10 },
