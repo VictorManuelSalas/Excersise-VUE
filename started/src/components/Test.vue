@@ -56,6 +56,10 @@ export default {
     background-color: rgba(32, 118, 84, 0.473);
     padding: 1rem;
     border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
     box-shadow: 1px 1px 10px rgb(0, 0, 0);
 }
 b {

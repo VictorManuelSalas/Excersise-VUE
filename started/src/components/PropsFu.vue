@@ -19,10 +19,22 @@
         <img src="../assets/props.png" alt="props">
         <hr>
         <p>
-            Para pasar variables definidas desde el padre es practicamente lo mismo solo que en esta ocacion se le agrega : al inicio del identificador en la etiqueta del componente hijo.
-            De esta forma se pueden envar asta funciones:
+            Para pasar variables definidas desde el padre es practicamente lo mismo solo que en esta ocacion se le
+            agrega : al inicio del identificador en la etiqueta del componente hijo.
+            De esta forma se pueden enviar asta funciones:
+        </p> 
+        <img src="../assets/variables.png" alt="props" />
+
+        <p>Para enviar una funcion primero se debe de tener una, un ejemplo es la siguiente de la imagen, el cual en la imagen de arriba ⬆ se muestra que se manda sin los () ya que si los ponemos saldria error.
+
         </p>
+        <img src="../assets/funcion.png" alt="props" />
+        <img src="../assets/dataEnviada.png" alt="props" />
+       <p>En el componente hijo, en la seccion de props se agregan los identificadores y se le agregan los tipos y el default, nota que si mandan una funcion esta se debe de poner de tipo funcion.</p>
+        <img src="../assets/propss.png" alt="">
         <br>
+
+        <i>Prueba la funcion enviada dando clic al boton ⬇</i>
         <button id="btn-func" @click="passFunction">Click</button>
     </div>
 </template>
@@ -39,11 +51,11 @@ export default {
     methods: {
     },
     props: {
-        passFunction: Function,
         title: {
             type: String,
             default: 'Error'
         },
+        passFunction: Function,
         numeroParaProps: {
             type: Number,
             default: 12,
@@ -55,6 +67,8 @@ export default {
 <style>
 #btn-func {
     width: 10rem;
+    margin: auto;
+    cursor: progress;
 }
 
 i {
@@ -63,5 +77,12 @@ i {
 
 img {
     border-radius: 1rem;
+}
+
+@media screen and (max-width:900px) {
+    img {
+    border-radius: 1rem;
+    width: 90%;
+}
 }
 </style>
