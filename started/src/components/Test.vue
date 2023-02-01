@@ -1,14 +1,18 @@
 <template>
-    <b>Soy un componente dentro del componente Card😊 que tiene eventos (clic, etc)  °</b>
-    <div id="btn">
-        <button v-on:click="Click()">Al dar click aumenta: {{ contador }}</button>
-        <button v-on:dblclick="DbClick()">Al darle doble clic: {{ activacion }}</button>
+    <div id="content">
+        <b>Soy un componente dentro del componente Card😊 que tiene eventos (clic, etc) °</b>
 
-        <button v-on:mouseenter="EnterMouse()">Aumenta a ingresar el mouse: {{ pordos }}</button>
-        <button v-on:mouseleave="ExitMouse()">Al sacar el mouse sale: {{ adios }}</button>
-        <button v-on:keypress="KeyPress()">Al presionar cualquier tecla: {{ tecla }} <input type="text"></button>
+        <div id="btn">
+            <button v-on:click="Click()">Al dar click aumenta: {{ contador }}</button>
+            <button v-on:dblclick="DbClick()">Al darle doble clic: {{ activacion }}</button>
 
+            <button v-on:mouseenter="EnterMouse()">Aumenta a ingresar el mouse: {{ pordos }}</button>
+            <button v-on:mouseleave="ExitMouse()">Al sacar el mouse sale: {{ adios }}</button>
+            <button v-on:keypress="KeyPress()">Al presionar cualquier tecla: {{ tecla }} <input type="text"></button>
+
+        </div>
     </div>
+
 
 </template>
 
@@ -48,13 +52,21 @@ export default {
 </script>
 
 <style>
+#content {
+    background-color: aqua;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 2px 3px 20px rgb(255, 255, 255);
+}
+b {
+    font-size: 1.5rem;
+}
 #btn {
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
 }
-button{
+button {
     width: fit-content;
     height: fit-content;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -64,9 +76,10 @@ button{
     color: rgb(255, 255, 255);
     background-color: cornflowerblue;
     border-radius: 1rem;
-   }
-   input{
+}
+
+input {
     border: none;
     border-radius: 1rem;
-   }
+}
 </style>

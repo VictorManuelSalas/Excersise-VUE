@@ -1,15 +1,21 @@
 <template>
-    <b>Soy un componente de la app con Variables</b>
-    <p>Esta es una variable string --> {{ brand }}</p>
-    <p>Esta es una variable numerica --> {{ numerico }}</p>
-    <p>Esta es una variable array en el indice 1 --> {{ arreglo[3] }} || Array completo --> ['carro', 'perro', 'escoba',
-        'pc']</p>
-    <p>Esta es una variable de objeto --> {{ objeto }} || Este es un elemento title del objeto --> {{ objeto.title }}
-    </p>
-    <br>
-    <Test />
+    <div id="card">
+        <b>Soy un componente de la app con Variables</b>
+        <p>Esta es una variable string --> {{ brand }}</p>
+        <p>Esta es una variable numerica --> {{ numerico }}</p>
+        <p>Esta es una variable array en el indice 1 --> {{ arreglo[3] }} || Array completo --> ['carro', 'perro',
+            'escoba',
+            'pc']</p>
+        <p>Esta es una variable de objeto --> {{ objeto }} || Este es un elemento title del objeto --> {{
+            objeto.title
+        }}
+        </p>
+        <br>
+        <Test />
 
-    
+
+    </div>
+
 </template>
 
 <script>
@@ -37,5 +43,13 @@ export default {
 </script>
 
 <style>
+#card{
+    background-color: aquamarine;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+b{
+    font-size: 1.5rem;
+}
 
 </style>
