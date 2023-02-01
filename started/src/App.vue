@@ -4,6 +4,8 @@
     <h1>Vue Declarations 🐛</h1>
     <img src="./assets/logo.png" alt="IMG">
     <Card name="Variables"/>
+<!--<h1>{{ info }}</h1>-->
+    
   </div>
 
 </template>
@@ -15,8 +17,23 @@ export default {
   components: {
     Card,
 
+  },
+  mounted(){
+  /*
+    const axios = require('axios');
+    axios
+      .get('https://rickandmortyapi.com/api/character')
+      .then(response => (this.info = response))
+  },
+  data(){
+    return{
+      info: null,
+    }
+  }*/
   }
+  
 }
+
 </script>
 
 <style>
