@@ -30,6 +30,7 @@ h1{
   color: white;
 }
 img {
+  width: 30%;
   margin: auto;
 }
 </style>
