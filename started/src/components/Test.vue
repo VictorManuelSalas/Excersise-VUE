@@ -53,10 +53,10 @@ export default {
 
 <style>
 #content {
-    background-color: aqua;
+    background-color: rgba(32, 118, 84, 0.473);
     padding: 1rem;
     border-radius: 1rem;
-    box-shadow: 2px 3px 20px rgb(255, 255, 255);
+    box-shadow: 1px 1px 10px rgb(0, 0, 0);
 }
 b {
     font-size: 1.5rem;
@@ -74,7 +74,7 @@ button {
     padding: 0.5rem;
     border: none;
     color: rgb(255, 255, 255);
-    background-color: cornflowerblue;
+    background-color: rgb(104, 221, 165);
     border-radius: 1rem;
 }
 
