@@ -17,14 +17,18 @@
 
 nav {
   padding: 30px;
+  background-color: #2c3e50;
+  color: white;
 }
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #ffffff;
+  text-decoration-line: none;
 }
 
 nav a.router-link-exact-active {
   color: #42b983;
+  font-size: 1.5rem;
 }
 </style>

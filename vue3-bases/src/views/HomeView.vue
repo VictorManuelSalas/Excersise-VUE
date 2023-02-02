@@ -1,18 +1,30 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <IncrementDecrement :title="title_incrementDecrement"/>
+    <hr>
+    <RefVModel :title="title_refModel"/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import RefVModel from '@/components/RefVModel.vue';
+import IncrementDecrement from '@/components/IncrementDecrement.vue';
 
 export default {
   name: 'HomeView',
   components: {
-    HelloWorld
+   RefVModel,
+   IncrementDecrement
+  },
+  setup(){
+   const title_refModel = 'Componente #1 - Referencias y V-Model';
+   const title_incrementDecrement = 'Componente #2 - Incremento y Decremento Simple';
+
+    return{
+      title_refModel,
+      title_incrementDecrement,
+    }
   }
 }
 </script>
