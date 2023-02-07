@@ -1,14 +1,16 @@
 <template>
   <div class="home">
-    <SimpleCounterCompositionAPI :title="title_SimpleCounterCompositionAPI"/>
+    <ToDoList :title="title_ToDoList" />
     <hr>
-    <ReactCounter  :title="title_ReactCount"/>
+    <SimpleCounterCompositionAPI :title="title_SimpleCounterCompositionAPI" />
     <hr>
-    <IncrementDecrement :title="title_incrementDecrement"/>
+    <ReactCounter :title="title_ReactCount" />
     <hr>
-    <RefVModel :title="title_refModel"/>
+    <IncrementDecrement :title="title_incrementDecrement" />
+    <hr>
+    <RefVModel :title="title_refModel" />
 
-    
+
   </div>
 </template>
 
@@ -18,23 +20,26 @@ import RefVModel from '@/components/RefVModel.vue';
 import IncrementDecrement from '@/components/IncrementDecrement.vue';
 import ReactCounter from '@/components/ReactCounter.vue';
 import SimpleCounterCompositionAPI from '@/components/SimpleCounterCompositionAPI.vue';
+import ToDoList from '@/components/ToDoList.vue';
 
 export default {
   name: 'HomeView',
   components: {
-   RefVModel,
-   IncrementDecrement, 
-   ReactCounter,
-   SimpleCounterCompositionAPI
+    RefVModel,
+    IncrementDecrement,
+    ReactCounter,
+    SimpleCounterCompositionAPI,
+    ToDoList
   },
-  setup(){
-   const title_refModel = 'Componente #1 - Referencias y V-Model';
-   const title_incrementDecrement = 'Componente #2 - Incremento y Decremento Simple';
+  setup() {
+    const title_refModel = 'Componente #1 - Referencias y V-Model';
+    const title_incrementDecrement = 'Componente #2 - Incremento y Decremento Simple';
     const title_ReactCount = 'Componente #3 - ReactCount';
-    const title_SimpleCounterCompositionAPI = 'Componente #4 - Importar codigo para reutilizarlo'
-    return{
+    const title_SimpleCounterCompositionAPI = 'Componente #4 - Importar codigo para reutilizarlo';
+    const title_ToDoList = 'Componente #5 - To Do List Component';
+    return {
       title_refModel,
-      title_incrementDecrement,title_ReactCount,title_SimpleCounterCompositionAPI
+      title_incrementDecrement, title_ReactCount, title_SimpleCounterCompositionAPI,title_ToDoList,
     }
   }
 }
