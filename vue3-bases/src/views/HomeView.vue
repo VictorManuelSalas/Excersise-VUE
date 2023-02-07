@@ -1,5 +1,7 @@
 <template>
   <div class="home">
+    <PeticionJson :title="title_Peticiones" /> 
+    <hr>
     <ToDoList :title="title_ToDoList" />
     <hr>
     <SimpleCounterCompositionAPI :title="title_SimpleCounterCompositionAPI" />
@@ -21,6 +23,7 @@ import IncrementDecrement from '@/components/IncrementDecrement.vue';
 import ReactCounter from '@/components/ReactCounter.vue';
 import SimpleCounterCompositionAPI from '@/components/SimpleCounterCompositionAPI.vue';
 import ToDoList from '@/components/ToDoList.vue';
+import PeticionJson from '@/components/PeticionJson.vue';
 
 export default {
   name: 'HomeView',
@@ -29,7 +32,8 @@ export default {
     IncrementDecrement,
     ReactCounter,
     SimpleCounterCompositionAPI,
-    ToDoList
+    ToDoList,
+    PeticionJson
   },
   setup() {
     const title_refModel = 'Componente #1 - Referencias y V-Model';
@@ -37,8 +41,9 @@ export default {
     const title_ReactCount = 'Componente #3 - ReactCount';
     const title_SimpleCounterCompositionAPI = 'Componente #4 - Importar codigo para reutilizarlo';
     const title_ToDoList = 'Componente #5 - To Do List Component';
+    const title_Peticiones = 'Componente #6 - Peticiones Fetch Simples'
     return {
-      title_refModel,
+      title_refModel,title_Peticiones,
       title_incrementDecrement, title_ReactCount, title_SimpleCounterCompositionAPI,title_ToDoList,
     }
   }
