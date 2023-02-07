@@ -67,10 +67,22 @@ export default {
 }
 
 #tasks li {
+    text-align: left;
+    width: 50%;
+    padding: 0% 0.5rem;
+    height: fit-content;
     list-style: decimal;
     border-bottom: rgb(182, 182, 182) solid 1px;
     display: flex;
     justify-content: space-between;
-    margin: 10px 0px;
+    margin: 10px auto;
+}
+#tasks li span {
+    text-align: right;
+    height: fit-content;
+    cursor: pointer;
+}
+#tasks li span:hover {
+    transform: scale(2);
 }
 </style>
