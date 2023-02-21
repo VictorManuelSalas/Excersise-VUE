@@ -13,10 +13,10 @@ import { ref } from 'vue';
 export default {
     setup(){
         const store = useStore();
-        const name = ref('')
+        const name = ref('');
         const filter = () =>{
             store.dispatch('FilterByName', name.value)
-        }
+        };
 
         return{
             name, filter,

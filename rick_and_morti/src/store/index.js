@@ -22,7 +22,6 @@ export default createStore({
         const data = await response.json();
         commit('setCharacters', data.results);
         commit('setCharactersFilter', data.results);
-
       } catch (error) {
         console.error(error);
       }
@@ -45,7 +44,18 @@ export default createStore({
         }
       })
       commit('setCharactersFilter', results);
-    }
+    },
+
+    async NextPage({ commit }, page) {
+      try {
+        const response = await fetch('https://rickandmortyapi.com/api/character?page='+page);
+        const data = await response.json();
+        commit('setCharacters', data.results);
+        commit('setCharactersFilter', data.results);
+      } catch (error) {
+        console.error(error);
+      }
+    },
   },
   modules: {
   }
