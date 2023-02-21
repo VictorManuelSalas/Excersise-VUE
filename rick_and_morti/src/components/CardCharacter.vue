@@ -35,7 +35,7 @@ export default {
 
 <style lang="scss">
 .character {
-    background-color: rgb(136, 136, 136);
+    background-color: rgb(0, 0, 0);
     border-radius: 20px;
     box-shadow: 0 0 10px 1px black;
     overflow: hidden;

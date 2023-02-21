@@ -41,7 +41,7 @@ setup(){
     overflow: hidden;
     .item{
         padding: 1rem 0.5rem;
-        background-color: gray;
+        background-color: rgb(0, 0, 0);
         text-align: center;
         &:hover{
             color: orange;

@@ -11,8 +11,8 @@
             <li>{{ pageAfter }}</li>
         </ul>
         <div class="btns">
-            <button @click="Backpages">◀ Prevent</button>
-            <button @click="Nextpages"> Next ▶</button>
+            <button @click="Backpages">Prevent</button>
+            <button @click="Nextpages">Next</button>
         </div>
     </section>
 </template>
@@ -86,9 +86,10 @@ section {
             cursor: none;
         }
         li:nth-child(2){
-            background-color: white;
-            color: black;
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
             transform: scale(1.05);
+            border: none;
         }
     }
 
