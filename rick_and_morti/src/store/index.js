@@ -18,10 +18,11 @@ export default createStore({
   actions: {
     async getCharacters({ commit }) {
       try {
-        const response = await fetch('https://rickandmortyapi.com/api/character');
+        const response = await fetch('https://rickandmortyapi.com/api/character?page=1');
         const data = await response.json();
         commit('setCharacters', data.results);
         commit('setCharactersFilter', data.results);
+        console.log(data.info);
       } catch (error) {
         console.error(error);
       }
@@ -52,6 +53,7 @@ export default createStore({
         const data = await response.json();
         commit('setCharacters', data.results);
         commit('setCharactersFilter', data.results);
+        console.table(data.info);
       } catch (error) {
         console.error(error);
       }

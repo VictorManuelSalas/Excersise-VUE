@@ -5,7 +5,11 @@
                 <CardCharacterVue :character="character" />
             </div>
         </div>
-        <b>Page: {{ count }}</b>
+        <ul id="pages">
+            <li>{{ pageBefore }}</li>
+            <li>{{ count }}</li>
+            <li>{{ pageAfter }}</li>
+        </ul>
         <div class="btns">
             <button @click="Backpages">◀ Prevent</button>
             <button @click="Nextpages"> Next ▶</button>
@@ -25,8 +29,9 @@ export default {
     },
     setup() {
 
-        const count = ref(1);
-
+        const count = ref(2);
+        const pageBefore = ref(1);
+        const pageAfter = ref(3);
         const store = useStore();
         const characters = computed(() => {
             return store.state.charactersFilter
@@ -36,16 +41,27 @@ export default {
             store.dispatch('getCharacters')
         })
         const Nextpages = (() => {
-            const page = count.value++;
-            store.dispatch('NextPage', page)
+            count.value++;
+            pageBefore.value++;
+            pageAfter.value++;
+            store.dispatch('NextPage', count.value)
         })
         const Backpages = (() => {
-            const page = count.value--;
-            store.dispatch('NextPage', page)
+            count.value--;
+            pageBefore.value--;
+            pageAfter.value--;
+            if (count.value > 0) {
+                store.dispatch('NextPage', count.value)
+            } else {
+                count.value = 1
+                pageBefore.value = 0;
+            pageAfter.value = 2;
+            }
+
         })
 
         return {
-            characters, Backpages, Nextpages, count,
+            characters, Backpages, Nextpages, count, pageAfter, pageBefore,
         }
     }
 }
@@ -57,9 +73,23 @@ section {
     flex-direction: column;
     justify-content: center;
 
-    b {
-        text-align: center;
-
+    #pages {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        li{
+            list-style: none;
+            font-weight: bolder;
+            border-radius: 10px;
+            border: solid white 1px;
+            padding: 0.5rem 1rem ;
+            cursor: none;
+        }
+        li:nth-child(2){
+            background-color: white;
+            color: black;
+            transform: scale(1.05);
+        }
     }
 
     .btns {
