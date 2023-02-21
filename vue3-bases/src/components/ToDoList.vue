@@ -10,7 +10,7 @@
 
     <ol id="tasks">
         <b>List of Tasks</b>
-        <li v-for=" toDo in toDos">
+        <li v-for="toDo in toDos" :key="toDo.id">
             {{ toDo }} <span @click="deleteToDo(index)">❌</span>
         </li>
     </ol>
@@ -26,7 +26,8 @@ export default {
             default: 'Title'
         }
     },
-    setup() {
+    setup(props) {
+        console.log(props);
         const { toDo, toDos, addToDo, deleteToDo } = useToDoList();
         return { toDo, toDos, addToDo, deleteToDo };
     }
